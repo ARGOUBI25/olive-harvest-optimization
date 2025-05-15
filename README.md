@@ -62,6 +62,6 @@ MIT License. See [LICENSE](LICENSE).
   title={Optimizing Olive Harvest and Wastewater Valorization in Tunisia: A Sustainable Planning Framework for Circular Agri-Waste Management},  
   author={Argoubi, M. and Mili, K.},  
   year={2025},  
-  doi={10.5281/zenodo.XXXXXXX}  
+  doi={}  
 }
 ```  
