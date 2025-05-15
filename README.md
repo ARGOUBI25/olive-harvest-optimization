@@ -1,18 +1,18 @@
-# 🫒 Olive Harvest Optimization  
+# 🫒 Olive Harvest Optimization
 
 This repository contains the code and data for the study:  
-**"Sustainable Planning for Olive Harvest and Olive Mill Wastewater Valorization in Tunisia: An Integrated Optimization Framework"**  
+**"Sustainable Planning for Olive Harvest and Olive Mill Wastewater Valorization in Tunisia: An Integrated Optimization Framework"**
 
-## 📦 Repository Contents  
+## 📦 Repository Contents
 
-| File/Folder          | Description                                                                 |
-|----------------------|-----------------------------------------------------------------------------|
-| `model/milp_model.py` | MILP formulation for olive harvest and OMW management optimization.         |
-| `model/epsilon_constraint.py` | ε-constraint method implementation for multi-objective optimization.        |
-| `data/`              | Sample dataset (CSV/XLSX) for simulations.                                  |
-| `results/`           | Pre-computed optimization outputs (tables/figures).                        |
+| File/Folder                | Description                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| `model/milp_model.py`      | MILP formulation for olive harvest and OMW management optimization.         |
+| `model/epsilon_constraint.py` | ε-constraint method (AUGMECON2) for multi-objective optimization.           |
+| `data_template.py`         | Generator for sample case study data (Henchir Chaal, Tunisia).              |
+| `results/`                 | Generated Pareto front and figures (CSV + PNG).                            |
 
-## 🔧 Installation  
+## 🔧 Installation
 
 1. **Prerequisites**: Python 3.9+  
 2. Install dependencies:  
@@ -27,9 +27,30 @@ This repository contains the code and data for the study:
 ## 🚀 Quick Start  
 
 ```bash
-python model/epsilon_constraint.py --input data/olive_data.csv --output results/
+python model/epsilon_constraint.py --p2 5 --p3 10 --output results/pareto_front.csv
 ```  
-*Modify parameters in `config.yaml` for custom scenarios.*  
+*You can change p2 and p3 to control the grid granularity for quality (Z2) and profit (Z3).*
+
+*Input data is generated via data_template.py.*  
+
+## 📊 Output & Visualization
+The script generates:
+
+*results/pareto_front.csv — Pareto-optimal solutions.*
+
+*results/pareto_front.png — Front Z2 (Quality) vs Z3 (Profit).*
+
+*results/mill_P1_flow.png, mill_P2_flow.png, mill_P3_flow.png — Quantity processed per mill.*
+
+*results/day_1_harvest.png to results/day_14_harvest.png — Harvested quantity per day.*
+
+*These allow for visual analysis of environmental–economic trade-offs and system load.*
+
+## 🧪 Data
+This repository includes synthetic data representing the Henchir Chaal case study (18 plots, 3 mills, 14 days).
+Parameters include olive quality attributes, capacities, waste coefficients, and cost structures.
+
+
 
 ## 📜 License  
 MIT License. See [LICENSE](LICENSE).  
